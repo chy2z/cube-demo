@@ -1,0 +1,76 @@
+@import "./variable.less" ;
+
+html,body {  
+  height: 100%; padding: 0; margin: 0;
+  font-size: 16px;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+//容器
+.cubes-layout{
+    height: 100%;
+}
+
+.cubes-head {
+  z-index: 10;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: @head-height;
+  line-height: @head-height;
+  text-align: center;
+  color: #ffDE40;
+  background-color: #000;
+  box-shadow: 0 1px 6px #ccc;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.cubes-head h1 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.cubes-head .cubes-head-left{
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 15px;        
+}
+
+.cubes-content {
+  z-index: 10;
+  position: absolute;
+  top: 60px;  
+  left: 0;
+  right: 0;
+  bottom: @head-height;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cubes-content .cubes-list {
+  padding-left: 10px;
+}
+
+.cubes-content .cubes-list .cubes-item {
+  height: 40px;
+  line-height: 40px;
+}
+
+.cubes-content .cubes-list .cubes-item .link {
+  display: block;
+  position: relative;
+  width: 100%;
+  color: #333;
+  text-decoration: none;
+  outline: 0;
+}
+
+.cubes-content .cubes-list .cubes-item .link .cubesic-arrow {
+  position: absolute;
+  right: 0;
+  padding: 0 5px;
+  color: #ccc;
+}

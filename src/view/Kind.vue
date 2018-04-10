@@ -1,64 +1,103 @@
 <template>
-	<div class="cubes-layout">
-		
+	<div class="cubes-layout">		
     <header class="cubes-head">
-      <h1>种类</h1>          
-    </header>
-    
-    <section class="cubes-content">
-     
+      <h1>分类</h1>          
+    </header>    
+    <section class="cubes-content">     
+     <div class="view-wrapper">
+        <div class="index-list-wrapper custom">
+          <cube-index-list :data="singerData">
+            <cube-index-list-group v-for="(group, index) in singerData" :key="index" :group="group">
+              <cube-index-list-item v-for="(item, index) in group.items" :key="index" :item="item" @select="selectItem">
+                <div class="custom-item">
+                  <img class="avatar" v-lazy="item.avatar">
+                  <span class="name">{{item.name}}</span>
+                </div>
+              </cube-index-list-item>
+            </cube-index-list-group>
+          </cube-index-list>
+        </div>
+      </div>         
     </section>  
-    
     </div>
 </template>
 
 <script type="text/ecmascript-6">  
-
-  export default {
-    data() {
-      return {
-        components: [
-          {
-            path: '/Login',
-            text: '登录'
-          },
-          {
-            path: '/Setting',
-            text: '设置'
-          },
-          {
-            path: 'Register',
-            text: '注册'
-          },
-          {
-            path: '/radio',
-            text: 'Radio'
-          }          
-        ]
-      }
-    },
+import singerData from './data/singer.json'
+export default {
     components: {
      
+    },
+    data() {
+      return {
+        singerData: singerData
+      }
+    },
+    methods: {
+      selectItem(item) {
+        console.log(item.name)
+      },
+      clickTitle(title) {
+        console.log(title)
+      }
     }
-  }
+ }  
 </script>
 
-<style scoped="scoped" lang="less">
+<style  lang="less">
+@import "../static/style/variable.less";
 
-.cubes-head .cubes-head-kefu{
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 0 15px;        
-        cursor: pointer;
+.view-wrapper {
+  position: fixed;
+  top: @head-height;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
-
-.cubes-head .cubes-head-code{
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 0 60px;   
-        cursor: pointer;     
+.view-wrapper .index-list-wrapper {
+  height: 98%;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
 }
-
+.view-wrapper .index-list-wrapper.custom .cube-index-list-content {
+  background-color: #f1f1f3;
+  color: #2f2929;
+}
+.view-wrapper .index-list-wrapper.custom .cube-index-list-group {
+  padding-bottom: 30px;
+}
+.view-wrapper .index-list-wrapper.custom .cube-index-list-anchor {
+  background-color: #333;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 0 0 20px;
+}
+.view-wrapper .index-list-wrapper.custom .custom-item {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 0 30px;
+}
+.view-wrapper .index-list-wrapper.custom .custom-item .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.view-wrapper .index-list-wrapper.custom .custom-item .name {
+  margin-left: 20px;  
+}
+.view-wrapper .index-list-wrapper.custom .cube-index-list-nav {
+  padding: 20px 0;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.3);
+}
+.view-wrapper .index-list-wrapper.custom .cube-index-list-nav >ul >li {
+  padding: 4px;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+.view-wrapper .index-list-wrapper.custom .cube-index-list-nav >ul >li.active {
+  color: #ffcd32;
+}
 </style>

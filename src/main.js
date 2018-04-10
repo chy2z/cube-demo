@@ -3,6 +3,7 @@ import Vue from 'vue'
 import App from './App'
 import store from './store'
 import router from './router'
+import VueLazyload from 'vue-lazyload'
 import {
   /* eslint-disable no-unused-vars */
   Style,
@@ -53,6 +54,7 @@ Vue.use(Slide)
 Vue.use(IndexList)
 Vue.use(Swipe)
 Vue.use(Upload)
+Vue.use(VueLazyload)
 FastClick.attach(document.body) 
 import "./static/style/iconfont/iconfont.less" 
 import "./static/style/common.less" 
@@ -70,7 +72,7 @@ new Vue({
         this.currentPageName = this.$route.name; 
         console.log(this.currentPageName);        
   },
-  created () {   
+  created () {
   
   }
 })

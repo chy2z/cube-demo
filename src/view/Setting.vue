@@ -1,11 +1,6 @@
 <template>	
-	<div class="cubes-page">
-	
-	<header class="header">
-		<h1>设置</h1>
-		<i @click="back" class="cubesic-back icon iconfont">&#xe624;</i>
-	</header>
-	
+	<cubes-page :type="type" :title="title">
+	<template slot="content">	
 	<div class="wrapper">
 		<main class="cubes-page-content">
 			<ul class="cubes-list">
@@ -24,18 +19,20 @@
 				</li>
 			</ul>
 		</main>
-	</div>
-	
-</div>
-    
+	</div>	
+    </template>
+	</cubes-page>
 </template>
 
 <script type="text/ecmascript-6">  
   import ajaxHelper from '../static/js/ajaxHelper.js'
   import  * as utils from '../static/js/utils.js'
+  import CubesPage from './components/cubes-page'
   export default {
     data() {
       return {
+      	title: "设置",
+		type: "setting-view",
         components: [
           {
             path: '/',
@@ -69,11 +66,11 @@
     	}
     },
     components: {
-     
+     CubesPage
     }
   }
 </script>
 
 <style lang="less">	
-   @import '../static/style/page.less';	
+  
 </style>

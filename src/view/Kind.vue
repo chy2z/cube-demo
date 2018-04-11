@@ -33,9 +33,16 @@ export default {
         singerData: singerData
       }
     },
+    mounted () {        
+       console.log("kind-mounted");        
+	},
+	created () {
+	   console.log("kind-created");     
+	},
     methods: {
       selectItem(item) {
         console.log(item.name)
+        this.$router.push("/Login");
       },
       clickTitle(title) {
         console.log(title)

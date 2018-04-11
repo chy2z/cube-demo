@@ -38,7 +38,7 @@
     },
     methods: {
       back() {
-        this.$router.back()
+        this.$router.back();
       }
     }
   }

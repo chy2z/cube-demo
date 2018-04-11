@@ -19,14 +19,14 @@
   export default {
     data(){
     	return {
-    		activeTable:0,
+    		activeTable:2,
     		tabItems:[
     		   {
-    		   	 icon:"&#xe630;",active:true,title:"首页",path:"/"
+    		   	 icon:"&#xe630;",active:false,title:"首页",path:"/HomePage"
     		   },{
     		   	icon:"&#xe631;",active:false,title:"分类",path:"/Kind"
     		   },{
-    		   	icon:"&#xe645;",active:false,title:"订单",path:"/Order"
+    		   	icon:"&#xe645;",active:true,title:"订单",path:"/Order"
     		   },{
     		   	icon:"&#xe62f;",active:false,title:"我的",path:"/My"
     		   }
@@ -35,6 +35,7 @@
     },
     methods: {
        tabClick(key,path){
+           console.log(key);
            this.tabItems[this.activeTable].active=false;
            this.activeTable=key;
        	   this.tabItems[this.activeTable].active=true;

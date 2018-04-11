@@ -1,20 +1,17 @@
 <template>
-	<div class="cubes-layout">		
-    
+	<div class="cubes-layout">
     <header class="cubes-head">
       <h1>首页</h1>      
       <i class="cubes-head-news iconfont">&#xe633;</i>
       <i class="cubes-head-code iconfont">&#xe62e;</i>
-    </header>
-    
-    <div class="cubes-content">    
-      
+    </header>    
+    <div class="cubes-content">          
          <scroll-list-option :value="components" :type="scrollType" 
          	         :pulldown="false" :pullup="false"
 		             @pulling-down="onPullingDown"
 					 @pulling-up="onPullingUp" >
 					    
-					    <div slot="item" class="cubes-content-scroll">
+					   <div slot="item">
 	     
 					     <image-carousel-option :type="imageCarouselType" :value="imgItems" 
 					     	    @change="changePage"
@@ -26,19 +23,18 @@
 					     </grid-menu-option>
 					    	
 					     <ul class="cubes-list">
-					        <li class="cubes-item border-bottom-1px" v-for="(component, index) in components" :key="index">
-					          <router-link class="link" :to="component.path">
+					        <li class="cubes-item border-bottom-1px" @click="selectItem(component,$event)" v-for="(component, index) in components" :key="index">
+					          <a class="link" >
 					          	{{component.text}}
 					          	<i class="cubesic-arrow iconfont">&#xe62d;</i>
-					          </router-link>
+					          </a>
 					        </li>
 					     </ul>	    
 	     
-	                  </div>	  					 
+	                   </div>	  					 
 					     							
           </scroll-list-option>       
     </div>  
-    
     </div>
 </template>
 
@@ -117,6 +113,42 @@
           {
             path: '/radio',
             text: 'Radio'
+          },
+          {
+            path: '/radio',
+            text: 'Radio'
+          },
+          {
+            path: '/Login',
+            text: '登录2'
+          },
+          {
+            path: '/Setting',
+            text: '设置'
+          },
+          {
+            path: 'Register',
+            text: '注册'
+          },
+          {
+            path: '/radio',
+            text: 'Radio'
+          },
+          {
+            path: '/Login',
+            text: '登录3666666'
+          },
+          {
+            path: '/Setting',
+            text: '设置'
+          },
+          {
+            path: 'Register',
+            text: '注册'
+          },
+          {
+            path: '/radio',
+            text: 'Radio'
           } 
         ]
       }
@@ -126,15 +158,21 @@
        GridMenuOption,
        ScrollListOption
     },    
-    mounted(){    
-        
-    },    
+    mounted () {        
+       console.log("home-mounted");        
+	},
+	created () {
+	   console.log("home-created");     
+	},   
     methods:{
       changePage(current) {
         //console.log('当前轮播图序号为:' + current)
       },
       clickPage(item, index) {
         console.log(item)
+      },
+      selectItem(item,event){
+      	console.log(item);
       },
       itemClick(item, index){
       	console.log(item)

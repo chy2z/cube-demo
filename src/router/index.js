@@ -14,43 +14,76 @@ export default new Router({
   mode:'history',
   routes: [
     {
-    path: '*',
-    redirect: '/HomePage'
+	    path: '/',
+	    name:"Order",
+      component: Order,
+	    meta: {
+	         keepAlive: true,
+	         index:0
+	    }
     },
     {
       path: '/HomePage',
       name: 'HomePage',
-      component: HomePage
+      component: HomePage,
+      meta: {
+         keepAlive: true,
+         index:0
+      }
     },   
     {
       path: '/My',
       name: 'My',
-      component: My
+      component: My,
+      meta: {
+         keepAlive: true,
+         index:0
+      }
     }, 
     {
       path: '/Order',
       name: 'Order',
-      component: Order
+      component: Order,
+      meta: {
+         keepAlive: true,
+         index:0
+      }
     },
     {
       path: '/Kind',
       name: 'Kind',
-      component: Kind
+      component: Kind,
+      meta: {
+         keepAlive: true,
+         index:0
+      }
     },
     {
       path: '/Login',
       name: 'Login',
-      component: Login
+      component: Login,
+      meta: {
+         keepAlive: false,
+         index:1
+      }
     },
     {
       path: '/Register',
       name: 'Register',
-      component: Register
+      component: Register,
+       meta: {
+         keepAlive: false,
+         index:1
+      }
     },
     {
       path: '/Setting',
       name: 'Setting',
-      component: Setting
+      component: Setting,
+      meta: {
+         keepAlive: false,
+         index:1
+      }
     }
   ]
 })
